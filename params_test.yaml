@@ -1,0 +1,26 @@
+# mix_pipeline/params_test.yaml — quick smoke test
+#
+# Uses small synthetic references/reads instead of real assembly data, so the
+# pipeline finishes in seconds and doesn't depend on files outside the repo.
+# Usage: bash run.sh -params-file params_test.yaml
+
+challenge:
+  name:  challenge
+  fasta: test_data/challenge/challenge.fasta
+  reads: test_data/challenge/challenge.fastq.gz
+
+backgrounds:
+  - name:  background01
+    fasta: test_data/backgrounds/background01.fasta
+    reads: test_data/backgrounds/background01.fastq.gz
+
+outdir: ./output
+
+mix_total_reads: 100
+
+mix_proportions:
+  - 0
+  - 0.5
+  - 1.0
+
+mix_replicates: 1

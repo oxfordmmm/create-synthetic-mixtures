@@ -1,0 +1,47 @@
+# mix_pipeline/params.yaml — parameters for standalone mix generation
+#
+# Pass via: -params-file params.yaml (done automatically by run.sh)
+# Override any param on the command line: --mix_total_reads 10000
+
+# Challenge strain — one only. Gets proportion p in every mix, and its fasta is
+# the mapping reference for map_mix_reads.
+challenge:
+  name:  barcode03
+  fasta: /mnt/volume_1/data/genome_assembly/output/best_assemblies/barcode03_staph_1000bp_80x_pypolca_chromosome.fasta
+  reads: /mnt/volume_1/data/genome_assembly/input/ont_reads/barcode03.fastq.gz
+
+# Background strains — one or more. Each is mixed against the challenge as its own
+# independent pairwise experiment (challenge_vs_<name>), at proportion 1-p, producing
+# a separate set of mixes per background. `fasta` is optional — omit to skip
+# pre-filtering that background's reads to a reference before mixing.
+backgrounds:
+  - name:  barcode01
+    fasta: /mnt/volume_1/data/genome_assembly/output/best_assemblies/barcode01_all_500bp_100x_pypolca_chromosome.fasta
+    reads: /mnt/volume_1/data/genome_assembly/input/ont_reads/barcode01.fastq.gz
+  - name: barcode04
+    fasta: /mnt/volume_1/data/genome_assembly/output/best_assemblies/barcode04_all_allreads_100x_medaka_chromosome.fasta
+    reads: /mnt/volume_1/data/genome_assembly/input/ont_reads/barcode04.fastq.gz
+  - name: barcode10
+    fasta: /mnt/volume_1/data/genome_assembly/output/best_assemblies/barcode10_all_500bp_80x_pypolca_chromosome.fasta
+    reads: /mnt/volume_1/data/genome_assembly/input/ont_reads/barcode10.fastq.gz
+  - name: barcode16
+    fasta: /mnt/volume_1/data/genome_assembly/output/best_assemblies/barcode16_all_1000bp_100x_medaka_chromosome.fasta
+    reads: /mnt/volume_1/data/genome_assembly/input/ont_reads/barcode16.fastq.gz
+  - name: barcode20
+    fasta: /mnt/volume_1/data/genome_assembly/output/best_assemblies/barcode20_all_1000bp_120x_pypolca_chromosome.fasta
+    reads: /mnt/volume_1/data/genome_assembly/input/ont_reads/barcode20.fastq.gz
+
+outdir: /mnt/volume_1/data/mix_output/
+
+mix_total_reads: 50000
+
+mix_proportions:
+  - 0
+  - 0.0001
+  - 0.001
+  - 0.01
+  - 0.1
+  - 0.5
+  - 1.0
+
+mix_replicates: 3
