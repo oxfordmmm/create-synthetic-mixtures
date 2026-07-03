@@ -2,11 +2,10 @@
 
 Standalone synthetic read-mix generator. Takes one challenge strain and one or
 more background strains, and produces mixed FASTQs/BAMs at a range of
-proportions — without running the full reference-panel/marker/detection
-pipeline in `genome_analysis/`.
+proportions.
 
 Each background is mixed against the challenge as its own independent
-pairwise experiment (`challenge_vs_<background>`), not one N-way combined mix.
+pairwise experiment (`challenge_vs_<background>`).
 
 ## Setup
 
@@ -35,7 +34,7 @@ challenge:
 backgrounds:
   - name:  barcode01
     fasta: /path/to/background01_reference.fasta   # optional — omit to skip
-    reads: /path/to/background01_reads.fastq.gz     # pre-filtering these reads
+    reads: /path/to/background01_reads.fastq.gz     
   - name:  barcode10
     reads: /path/to/background10_reads.fastq.gz
 
