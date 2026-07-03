@@ -19,7 +19,7 @@ conda activate mix_pipeline
 
 This only installs Nextflow. Each process resolves its own tool environment
 on the fly via `conda.enabled = true` (see `nextflow.config` and
-`../envs/mapping.yml`, `../envs/mix.yml`) — you don't need to separately
+`envs/mapping.yml`, `envs/mix.yml`) — you don't need to separately
 install minimap2, samtools, seqtk, etc.
 
 ## Configure

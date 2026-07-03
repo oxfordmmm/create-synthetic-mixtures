@@ -1,0 +1,9 @@
+name: mix
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - rasusa
+  - seqtk
+  - pigz

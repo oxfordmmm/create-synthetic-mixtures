@@ -1,7 +1,7 @@
 # mix_pipeline/environment.yaml — environment to launch the pipeline itself
 #
 # This only provides Nextflow. Each process resolves its own tool env on the fly
-# via conda.enabled=true (see nextflow.config + ../envs/*.yml) — you don't need
+# via conda.enabled=true (see nextflow.config + envs/*.yml) — you don't need
 # to install minimap2/samtools/seqtk/etc. into this env.
 #
 # Setup:  conda env create -f environment.yaml
