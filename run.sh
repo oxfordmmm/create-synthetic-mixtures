@@ -19,6 +19,8 @@ if [[ "$*" == *"-params-file"* ]]; then
     PARAMS_FILE=""
 fi
 
+cd "${SCRIPT_DIR}"
+
 nextflow -log "${LOG_DIR}/nextflow_${TIMESTAMP}.log" run "${SCRIPT_DIR}/main.nf" \
     -c "${SCRIPT_DIR}/nextflow.config" \
     ${PARAMS_FILE:+-params-file "${PARAMS_FILE}"} \
